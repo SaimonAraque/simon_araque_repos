@@ -4,6 +4,7 @@ import {
   Column,
   OneToOne,
   JoinColumn,
+  ManyToOne,
 } from 'typeorm';
 
 import { Tribe } from '../../tribes/entities/tribe.entity';
@@ -12,10 +13,6 @@ import { Tribe } from '../../tribes/entities/tribe.entity';
 export class Repository {
   @PrimaryGeneratedColumn()
   id_repository: number;
-
-  @OneToOne(() => Tribe)
-  @JoinColumn()
-  id_tribe: number;
 
   @Column({ type: 'varchar', length: 50 })
   name: string;
@@ -28,4 +25,8 @@ export class Repository {
 
   @Column({ type: 'char', length: 1 })
   status: string;
+
+  @ManyToOne(() => Tribe, (tribe) => tribe.repositories)
+  @JoinColumn({ name: 'id_tribe' })
+  tribe: Tribe;
 }

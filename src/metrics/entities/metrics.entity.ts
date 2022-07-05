@@ -12,7 +12,7 @@ import { Repository } from '../../repositories/entities/repository.entity';
 export class Metrics {
   @PrimaryGeneratedColumn()
   @OneToOne(() => Repository)
-  @JoinColumn()
+  @JoinColumn({ name: 'id_repository' })
   id_repository: number;
 
   @Column({ type: 'double precision' })
