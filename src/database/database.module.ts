@@ -19,6 +19,8 @@ import config from 'src/config';
           extra: {
             options: `--cluster=${cluster}`,
           },
+          synchronize: true,
+          entities: ['dist/**/*.entity.js'],
         };
       },
       inject: [config.KEY],
