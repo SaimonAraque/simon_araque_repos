@@ -5,7 +5,6 @@ import * as Joi from 'joi';
 import { DatabaseModule } from './database/database.module';
 import { environments } from './environments';
 import { OrganizationsModule } from './organizations/organizations.module';
-import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { MetricsModule } from './metrics/metrics.module';
 import { TribesModule } from './tribes/tribes.module';
@@ -30,7 +29,6 @@ import config from './config';
       }),
     }),
     OrganizationsModule,
-    AuthModule,
     UsersModule,
     MetricsModule,
     TribesModule,
