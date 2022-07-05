@@ -2,6 +2,11 @@ import { Global, Module } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+import { Organization } from '../organizations/entities/organization.entity';
+import { Tribe } from '../tribes/entities/tribe.entity';
+import { Repository } from '../repositories/entities/repository.entity';
+import { Metrics } from 'src/metrics/entities/metrics.entity';
+
 import config from 'src/config';
 
 @Global()
@@ -20,11 +25,12 @@ import config from 'src/config';
             options: `--cluster=${cluster}`,
           },
           synchronize: true,
-          entities: ['dist/**/*.entity.js'],
+          entities: [Organization, Repository, Metrics, Tribe],
         };
       },
       inject: [config.KEY],
     }),
   ],
+  exports: [TypeOrmModule],
 })
 export class DatabaseModule {}

@@ -6,7 +6,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 
-import { Organization } from './organization.entity';
+import { Organization } from '../../organizations/entities/organization.entity';
 
 @Entity()
 export class Tribe {
@@ -17,7 +17,7 @@ export class Tribe {
   @JoinColumn()
   id_organization: number;
 
-  @Column({ type: 'char', length: 50 })
+  @Column({ type: 'varchar', length: 50 })
   name: string;
 
   @Column({ type: 'int' })

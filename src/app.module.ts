@@ -4,6 +4,12 @@ import * as Joi from 'joi';
 
 import { DatabaseModule } from './database/database.module';
 import { environments } from './environments';
+import { OrganizationsModule } from './organizations/organizations.module';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { MetricsModule } from './metrics/metrics.module';
+import { TribesModule } from './tribes/tribes.module';
+import { RepositoriesModule } from './repositories/repositories.module';
 import config from './config';
 
 @Module({
@@ -23,6 +29,12 @@ import config from './config';
         DATABASE_CLUSTER: Joi.string().required(),
       }),
     }),
+    OrganizationsModule,
+    AuthModule,
+    UsersModule,
+    MetricsModule,
+    TribesModule,
+    RepositoriesModule,
   ],
   controllers: [],
   providers: [],
