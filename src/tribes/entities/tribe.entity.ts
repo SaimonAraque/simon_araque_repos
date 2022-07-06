@@ -21,9 +21,11 @@ export class Tribe {
   @Column({ type: 'int' })
   status: number;
 
-  @ManyToOne(() => Organization, (organization) => organization.tribes)
+  @ManyToOne(() => Organization, (organization) => organization.tribes, {
+    eager: true,
+  })
   @JoinColumn({ name: 'id_organization' })
-  organization: number;
+  organization: Organization;
 
   @OneToMany(() => Repository, (repository) => repository.tribe)
   repositories: Repository[];

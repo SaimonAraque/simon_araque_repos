@@ -1,10 +1,11 @@
+import { Metrics } from 'src/metrics/entities/metrics.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  OneToOne,
   JoinColumn,
   ManyToOne,
+  OneToOne,
 } from 'typeorm';
 
 import { Tribe } from '../../tribes/entities/tribe.entity';
@@ -29,4 +30,9 @@ export class Repository {
   @ManyToOne(() => Tribe, (tribe) => tribe.repositories)
   @JoinColumn({ name: 'id_tribe' })
   tribe: Tribe;
+
+  @OneToOne(() => Metrics, (metrics) => metrics.id_repository, {
+    eager: true,
+  })
+  metrics: Metrics;
 }
