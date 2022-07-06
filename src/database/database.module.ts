@@ -24,7 +24,7 @@ import config from 'src/config';
           extra: {
             options: `--cluster=${cluster}`,
           },
-          synchronize: true,
+          synchronize: false,
           entities: [Organization, Repository, Metrics, Tribe],
         };
       },
